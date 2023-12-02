@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mydata:/data/db
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+  app:
+    build: .
+    container_name: express-mongo
+    command: nodemon app.js localhost
+    volumes:
+      - .:/app
+    ports:
+      - 3080:3080
+    depends_on:
+      - db
+      - rabbitmq
+    environment:
+      - DB=mongodb://db:27017/mydata
+volumes:
+  mydata:

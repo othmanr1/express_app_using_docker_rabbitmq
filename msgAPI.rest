@@ -1,0 +1,49 @@
+POST http://localhost:3080/msg/Add
+content-type: application/json
+
+{
+    "msgDesc": "Bonjour fs202"
+}
+######
+POST http://localhost:3080/msg/Add_msg_rabbitMQ_send
+content-type: application/json
+
+{
+    "msgDesc": "hi its me !! normal exchange received in controller"
+}
+########
+POST http://localhost:3080/msg/Add_msg_rabbitMQ_direct
+content-type: application/json
+
+{
+    "msgDesc": "hi its me !! direct exchange received in controller"
+}
+#########
+POST http://localhost:3080/msg/Add_msg_rabbitMQ_recivedirect
+content-type: application/json
+
+{
+    "msgDesc": "hi its me !! direct exchange received in controller"
+}
+##########
+POST http://localhost:3080/msg/Add_msg_rabbitMQ_fanout
+content-type: application/json
+
+{
+    "msgDesc": "hi its me !! fanout exchange received in controller"
+}
+#########
+POST http://localhost:3080/msg/Add_msg_rabbitMQ_topic
+content-type: application/json
+
+{
+    "msgDesc": "hi its me !! topic exchange sent in controller nb2",
+    "routingKey": "info.test"
+}
+#########
+# GET http://localhost:3080/
+# content-type  : application/json; charset=utf-8
+
+
+
+##########
